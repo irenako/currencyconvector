@@ -8,7 +8,7 @@
   font-weight: 400;
 }
 .App header {
-  background-color: #0f044c;
+  background-color: #111111;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,4 +33,5 @@
   padding-top: 150px;
   font-size: 30px;
   font-weight: 400;
+  color: #eeeeee;
 }

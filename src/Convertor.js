@@ -1,16 +1,33 @@
 import React from "react";
-
 import "./Convertor.css";
+import PropTypes from "prop-types";
 
-export default function Convertor() {
+function Convertor(props) {
   return (
-    <div className="Convertor">
-      <input type="number" className="input" />
-      <select>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="UAN">UAN</option>
+    <div className="group">
+      <input
+        type="text"
+        value={props.amount}
+        onChange={(ev) => props.onAmountChange(ev.target.value)}
+      />
+      <select
+        value={props.currency}
+        onChange={(ev) => props.onCurrencyChange(ev.target.value)}
+      >
+        {props.currencies.map((currency) => (
+          <option value={currency}>{currency}</option>
+        ))}
       </select>
     </div>
   );
 }
+
+Convertor.propTypes = {
+  amount: PropTypes.number.isRequired,
+  currency: PropTypes.string.isRequired,
+  currencies: PropTypes.array,
+  onAmountChange: PropTypes.func,
+  onCurrencyChange: PropTypes.func,
+};
+
+export default Convertor;
